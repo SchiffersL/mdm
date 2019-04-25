@@ -8,7 +8,7 @@ var x = document.getElementById("demo");
 var d = document.getElementById("device");
 
 getLocation();
-handleOrientation();
+handleOrientation(window.orientation);
 
 function getLocation() {
   if (navigator.geolocation) {
@@ -17,9 +17,11 @@ function getLocation() {
     x.innerHTML = "Geolocation is not supported by this browser.";
   }
 }
-
+if (window.DeviceOrientationEvent) {
+  window.addEventListener('deviceorientation', deviceOrientationHandler, false);
+  document.getElementById("doeSupported").innerText = "Supported!";
+}
 function handleOrientation(event) {
-  var absolute = event.absolute;
   var alpha    = event.alpha;
   var beta     = event.beta;
   var gamma    = event.gamma;
