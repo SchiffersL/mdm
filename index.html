@@ -1,10 +1,14 @@
 <html>
 <body>
 <p id="demo"></p>
+<p id="device"></p>
 
 <script>
 var x = document.getElementById("demo");
+var d = document.getElementById("device");
+
 getLocation();
+handleOrientation();
 
 function getLocation() {
   if (navigator.geolocation) {
@@ -14,6 +18,17 @@ function getLocation() {
   }
 }
 
+function handleOrientation(event) {
+  var absolute = event.absolute;
+  var alpha    = event.alpha;
+  var beta     = event.beta;
+  var gamma    = event.gamma;
+
+  d.innerHTML = "gamma: " + gamma + 
+  "<br>alpha: " + alpha+ 
+  "<br>beta: " + beta;
+  // Do stuff with the new orientation data
+}
 function showPosition(position) {
   x.innerHTML = "Latitude: " + position.coords.latitude + 
   "<br>Longitude: " + position.coords.longitude;
