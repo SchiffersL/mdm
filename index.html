@@ -21,22 +21,17 @@ if (window.DeviceOrientationEvent) {
   window.addEventListener('deviceorientation', deviceOrientationHandler, false);
   document.getElementById("doeSupported").innerText = "Supported!";
 }
-function handleOrientation(event) {
-  var alpha    = event.alpha;
-  var beta     = event.beta;
-  var gamma    = event.gamma;
-
-  d.innerHTML = "gamma: " + gamma + 
-  "<br>alpha: " + alpha+ 
-  "<br>beta: " + beta;
-  // Do stuff with the new orientation data
-}
-window.addEventListener("deviceorientation", handleOrientation, true);
 
 function showPosition(position) {
   x.innerHTML = "Latitude: " + position.coords.latitude + 
   "<br>Longitude: " + position.coords.longitude;
 }
+
+window.addEventListener("deviceorientation", function(event) {
+    x.innerHTML = "alpha: " + event.alpha + 
+  "<br>beta: " + event.beta + 
+  "<br>gamma: " + event.gamma
+}, true);
 </script>
 
 </body>
