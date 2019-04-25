@@ -8,7 +8,6 @@ var x = document.getElementById("demo");
 var d = document.getElementById("device");
 
 getLocation();
-handleOrientation(window.orientation);
 
 function getLocation() {
   if (navigator.geolocation) {
@@ -28,7 +27,7 @@ function showPosition(position) {
 }
 
 window.addEventListener("deviceorientation", function(event) {
-    x.innerHTML = "alpha: " + event.alpha + 
+    d.innerHTML = "alpha: " + event.alpha + 
   "<br>beta: " + event.beta + 
   "<br>gamma: " + event.gamma
 }, true);
