@@ -26,11 +26,15 @@ function showPosition(position) {
   "<br>Longitude: " + position.coords.longitude;
 }
 
-if (window.DeviceOrientationEvent) {
-    x.innerHTML = "beta: " + event.beta + 
+window.addEventListener('deviceorientation', function(event) {
+  var a = event.alpha;
+  var b = event.beta;
+  var g = event.gamma;
+
+  x.innerHTML = "beta: " + event.beta + 
   "<br>gamma: " + event.gamma;
-} else {
-    x.innerHTML = "not supported ";}
+}, false);
+
 </script>
 
 </body>
