@@ -1,9 +1,10 @@
 <html>
 <body>
+<p id="demo"></p>
 
-<p>Click the button to get your coordinates.</p>
 <script>
-getLocation()
+var x = document.getElementById("demo");
+getLocation();
 
 function getLocation() {
   if (navigator.geolocation) {
