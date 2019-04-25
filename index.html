@@ -29,6 +29,8 @@ function handleOrientation(event) {
   "<br>beta: " + beta;
   // Do stuff with the new orientation data
 }
+window.addEventListener("deviceorientation", handleOrientation, true);
+
 function showPosition(position) {
   x.innerHTML = "Latitude: " + position.coords.latitude + 
   "<br>Longitude: " + position.coords.longitude;
