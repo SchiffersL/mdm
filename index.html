@@ -2,8 +2,9 @@
 <body>
 <p id="demo"></p>
 <p id="device"></p>
-
+<p id="test"></p>
 <script>
+var e = document.getElementById("test");
 var x = document.getElementById("demo");
 var d = document.getElementById("device");
 
@@ -25,7 +26,7 @@ function showPosition(position) {
   d.innerHTML = "Latitude: " + position.coords.latitude + 
   "<br>Longitude: " + position.coords.longitude;
 }
-
+e.innerHTML = "beta: ";
 window.addEventListener('deviceorientation', function(event) {
   var a = event.alpha;
   var b = event.beta;
