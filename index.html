@@ -1,42 +1,36 @@
 <html>
-        <body onload="init()">
-                <div id="dataContainerOrientation">
-                  No device orientation data
-                </div>
-                <div id="dataContainerMotion">
-                  No device motion data
-                </div>
-<p id="demo"></p>
-<p id="test"></p>
+<body onload="init()">
+    <div id="dataContainerOrientation">
+        No device orientation data
+    </div>
+    <div id="dataContainerMotion">
+        No device motion data
+    </div>
+    <div id="dataContainerLocation">
+        No device Location
+    </div>
+
 <script>
-var e = document.getElementById("test");
-var d = document.getElementById("device");
 
-getLocation();
+// getLocation();
 
-function getLocation() {
-  if (navigator.geolocation) {
-    navigator.geolocation.getCurrentPosition(showPosition);
-  } else { 
-    x.innerHTML = "Geolocation is not supported by this browser.";
-  }
-}
-if (window.DeviceOrientationEvent) {
-  window.addEventListener('deviceorientation', deviceOrientationHandler, false);
-  document.getElementById("doeSupported").innerText = "Supported!";
-}
+// function getLocation() {
 
-function showPosition(position) {
-  d.innerHTML = "Latitude: " + position.coords.latitude + 
-  "<br>Longitude: " + position.coords.longitude;
-}
+// }
+
+
+// function showPosition(position) {
+//   d.innerHTML = "Latitude: " + position.coords.latitude + 
+//   "<br>Longitude: " + position.coords.longitude;
+// }
 e.innerHTML = "beta: ";
  //Check for support for DeviceOrientation event
  function init() {
       //Find our div containers in the DOM
       var dataContainerOrientation = document.getElementById('dataContainerOrientation');
       var dataContainerMotion = document.getElementById('dataContainerMotion');
- 
+      var dataContainerLocation = document.getElementById('dataContainerLocation');
+
       //Check for support for DeviceOrientation event
       if(window.DeviceOrientationEvent) {
         window.addEventListener('deviceorientation', function(event) {
@@ -63,7 +57,20 @@ e.innerHTML = "beta: ";
                 dataContainerMotion.innerHTML = html;                  
               });
       }
-    }   
+    getLocation();
+    function getLocation() {
+        if (navigator.geolocation) {
+            navigator.geolocation.getCurrentPosition(showPosition);
+        } else {
+            dataContainerLocation.innerHTML = "Geolocation is not supported by this browser.";
+        }
+    }
+
+    function showPosition(position) {
+        dataContainerLocation.innerHTML = "Latitude: " + position.coords.latitude + 
+        "<br>Longitude: " + position.coords.longitude; 
+    }
+}   
 </script>
 
 </body>
