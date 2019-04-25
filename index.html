@@ -22,14 +22,14 @@ if (window.DeviceOrientationEvent) {
 }
 
 function showPosition(position) {
-  x.innerHTML = "Latitude: " + position.coords.latitude + 
+  d.innerHTML = "Latitude: " + position.coords.latitude + 
   "<br>Longitude: " + position.coords.longitude;
 }
 
 window.addEventListener("deviceorientation", function(event) {
-    d.innerHTML = "alpha: " + event.alpha + 
+    x.innerHTML = "alpha: " + event.alpha + 
   "<br>beta: " + event.beta + 
-  "<br>gamma: " + event.gamma
+  "<br>gamma: " + event.gamma;
 }, true);
 </script>
 
